@@ -5,6 +5,7 @@ Plug 'chriskempson/base16-vim'
 Plug 'vim-syntastic/syntastic'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'scrooloose/nerdtree'
+Plug 'itchyny/lightline.vim'
 
 call plug#end()
 
@@ -23,8 +24,23 @@ endif
 set background=dark
 colorscheme base16-materia
 
+" let g:lightline = {'colorscheme': 'one'}
+set noshowmode
+
 " = Rust ===================================================
 let g:rustfmt_autosave = 1
+
+" = Golang =================================================
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
+
+let g:go_fmt_command = "goimports"
+let g:go_metalinter_autosave = 1
+
 
 " = Syntastic ==============================================
 set statusline+=%#warningmsg#
@@ -41,7 +57,7 @@ filetype on
 filetype indent plugin on
 filetype plugin on
 
-au BufNewFile,BufRead *.py, *.go, *.rs |
+au BufNewFile,BufRead *.py
 	\ setlocal tabstop=4 |
 	\ setlocal softtabstop=4 |
 	\ setlocal shiftwidth=4 |
@@ -49,10 +65,9 @@ au BufNewFile,BufRead *.py, *.go, *.rs |
 	\ setlocal expandtab |
 	\ setlocal autoindent
 
-au BufNewFile,BufRead *.js, *.html, *.css
-	\ setlocal tabstop=2 |
-	\ setlocal softtabstop=2 |
-	\ setlocal shiftwidth=2
+au BufNewFile,BufRead *.js,*.html,*.css setlocal tabstop=2 softtabstop=2 shiftwidth=2
+
+autocmd BufNewFile,BufRead *.go setlocal noexpandtab tabstop=4 shiftwidth=4
 
 set nu
 set mouse=a
@@ -62,5 +77,10 @@ set backspace=indent,eol,start whichwrap+=<,>,[,]
 set foldcolumn=1
 set foldmethod=indent
 set foldlevel=99
+set cc=120
+set ru
+
+set nobackup
+set noswapfile
 
 
