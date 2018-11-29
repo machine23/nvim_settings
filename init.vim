@@ -8,8 +8,13 @@ Plug 'autozimu/LanguageClient-neovim', {'branch': 'next', 'do': 'bash install.sh
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+
 Plug 'machine23/cobalt2-vim-theme'
 Plug 'altercation/vim-colors-solarized'
+Plug 'ayu-theme/ayu-vim'
+Plug 'arcticicestudio/nord-vim'
 
 Plug 'itchyny/lightline.vim'
 
@@ -104,7 +109,12 @@ let NERDTreeIgnore=['\.pyc$', '\.DS_Store$', '\~$']
 "                      APPEARENCE
 " =============================================================
 
+set termguicolors
 set background=dark
+let g:nord_italic = 1
+let g:nord_underline = 1
+let g:nord_italic_comments = 1
+" let g:lightline = {'colorscheme': 'solarized'}
 colorscheme cobalt2
 
 "let g:lightline = {'colorscheme': 'one'}
@@ -146,4 +156,4 @@ set clipboard=unnamed
 set nobackup
 set noswapfile
 
-
+set signcolumn=yes
